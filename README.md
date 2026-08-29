@@ -35,4 +35,26 @@
 
 ## GitHub 同步
 
-本目录应关联一个 GitHub 私有仓库。修改后提交并推送，另一台电脑通过拉取获取更新。GitHub 同步文件和版本；AI 是否能读取内容，取决于当前电脑上使用的 AI 工具是否获得本地目录或仓库访问权限。
+本目录已关联 GitHub 私有仓库：<https://github.com/ssss204/visual-communication-knowledge-base>
+
+### 新电脑首次使用
+
+在 PowerShell 中执行：
+
+```powershell
+git clone "https://github.com/ssss204/visual-communication-knowledge-base.git" "E:\我的知识库"
+```
+
+### 日常同步
+
+在当前电脑把新笔记放入知识库后执行：
+
+```powershell
+$kb = "E:\我的知识库"
+git -C $kb add .
+git -C $kb commit -m "更新知识库"
+git -C $kb pull --rebase
+git -C $kb push
+```
+
+另一台电脑使用前先执行 `git -C "E:\我的知识库" pull --rebase`。如果 Git 提示登录，请在弹出的 GitHub 登录窗口完成认证。GitHub 同步文件和版本；AI 是否能读取内容，取决于当前电脑上使用的 AI 工具是否获得本地目录或仓库访问权限。
