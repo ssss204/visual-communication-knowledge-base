@@ -1,0 +1,16 @@
+# 编辑器和系统临时文件
+.vscode/
+.idea/
+*.tmp
+*.temp
+Thumbs.db
+.DS_Store
+
+# 本地缓存和导出文件
+.cache/
+_site/
+
+# 敏感配置（不要提交密码、密钥或令牌）
+.env
+*.key
+*.pem
