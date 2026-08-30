@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <title>王瑞轩｜大学开学报到清单</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --ink: #18181b;
+      --muted: #68686d;
+      --line: #dedee3;
+      --accent: #2563eb;
+      --accent-soft: #eaf1ff;
+      --success: #15803d;
+      --success-soft: #eaf7ee;
+      --focus: #111827;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 38px 0 64px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 640px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+      padding-top: 4px;
+    }
+
+    .button {
+      min-height: 44px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: var(--surface);
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    .button:hover { border-color: var(--ink); background: #fafafa; }
+    .button:focus-visible, input:focus-visible, .check-row:focus-within {
+      outline: 3px solid #93b4ff;
+      outline-offset: 2px;
+    }
+
+    .button.primary {
+      border-color: var(--accent);
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .button.primary:hover { border-color: #1d4ed8; background: #1d4ed8; }
+
+    .status-bar {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      margin: 24px 0 28px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .status-copy {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 9px;
+    }
+
+    .status-copy strong { font-size: 17px; }
+    .status-copy span { color: var(--muted); font-size: 14px; }
+
+    .progress-track {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: #e9e9ec;
+    }
+
+    .progress-value {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--accent);
+      transition: width 220ms ease;
+    }
+
+    .progress-percent {
+      min-width: 76px;
+      color: var(--accent);
+      font-size: 26px;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .search-wrap { flex: 1 1 300px; }
+    .search-wrap label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .search {
+      width: 100%;
+      min-height: 44px;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: var(--surface);
+    }
+
+    .filter {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .filter button {
+      min-height: 34px;
+      padding: 5px 12px;
+      border: 0;
+      border-radius: 5px;
+      color: var(--muted);
+      background: transparent;
+      transition: color 160ms ease, background 160ms ease;
+    }
+
+    .filter button:hover { color: var(--ink); background: #f1f1f3; }
+    .filter button.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px 24px;
+    }
+
+    .category {
+      min-width: 0;
+      padding-top: 18px;
+      border-top: 3px solid var(--ink);
+    }
+
+    .category.later { border-top-color: #a1a1aa; }
+    .category-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 7px;
+    }
+
+    .category h2 {
+      margin-bottom: 0;
+      font-size: 20px;
+      line-height: 1.25;
+    }
+
+    .category-count { color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .category-note { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+
+    .items { border-top: 1px solid var(--line); }
+    .check-row {
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      min-height: 53px;
+      padding: 13px 4px;
+      border-bottom: 1px solid var(--line);
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .check-row:hover { background: #f1f4f9; }
+    .check-row input {
+      width: 22px;
+      height: 22px;
+      margin: 1px 0 0;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .check-row.checked .item-name { color: #707078; text-decoration: line-through; text-decoration-thickness: 1px; }
+    .item-name { display: block; font-weight: 650; line-height: 1.35; }
+    .item-note { display: block; margin-top: 3px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .empty { padding: 18px 4px; color: var(--muted); font-size: 14px; }
+
+    .footer-note {
+      margin: 36px 0 0;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 24px, 620px); padding-top: 24px; }
+      .topbar { display: block; }
+      .top-actions { justify-content: flex-start; padding-top: 18px; }
+      .status-bar { grid-template-columns: 1fr; gap: 8px; }
+      .progress-percent { text-align: left; }
+      .controls { display: block; }
+      .search-wrap { margin-bottom: 10px; }
+      .filter { width: 100%; }
+      .filter button { flex: 1; }
+      .sections { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">2026 / 秋季入学</p>
+        <h1>大学开学报到清单</h1>
+        <p class="subtitle">王瑞轩 · 广东第二师范学院<br>先带必需品，床品和宿舍用品以学校通知为准。</p>
+      </div>
+      <div class="top-actions">
+        <button class="button" id="resetButton" type="button">清除所有勾选</button>
+      </div>
+    </header>
+
+    <section class="status-bar" aria-label="准备进度">
+      <div>
+        <div class="status-copy">
+          <strong id="statusTitle">出发前准备</strong>
+          <span id="statusText" aria-live="polite">0 / 0 项</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="出发前准备进度">
+          <div class="progress-value" id="progressValue"></div>
+        </div>
+      </div>
+      <div class="progress-percent" id="progressPercent">0%</div>
+    </section>
+
+    <section class="controls" aria-label="清单筛选">
+      <div class="search-wrap">
+        <label for="searchInput">搜索物品</label>
+        <input class="search" id="searchInput" type="search" placeholder="搜索物品，例如：身份证、床单、电脑" autocomplete="off">
+      </div>
+      <div class="filter" role="group" aria-label="显示筛选">
+        <button type="button" class="active" data-filter="all">全部</button>
+        <button type="button" data-filter="todo">未完成</button>
+        <button type="button" data-filter="done">已完成</button>
+      </div>
+    </section>
+
+    <section class="sections" id="sections" aria-live="polite"></section>
+
+    <p class="footer-note">勾选状态只保存在当前浏览器的本地存储中。到校后再买区域不计入出发前进度；如果更换浏览器或清理浏览器数据，需要重新勾选。</p>
+  </main>
+
+  <script>
+    const STORAGE_KEY = "wang-ruixuan-university-packing-checklist-v1";
+    const data = [
+      {
+        id: "documents", title: "报到材料", note: "原件随身带，复印件和电子版分开备份。", items: [
+          ["录取通知书", "1 份，原件随身携带"], ["身份证", "检查有效期"], ["身份证复印件", "2—3 份，正反面复印"],
+          ["一寸证件照", "8—12 张，同时保存电子版"], ["两寸证件照", "2—4 张，按报到须知增减"],
+          ["学校要求的档案、团组织材料或户口材料", "以录取通知书为准"], ["缴费、贷款或家庭经济困难材料", "有需要才准备"],
+          ["银行卡", "保存缴费凭证和转账记录"], ["重要资料电子备份", "存手机云端或 U 盘"], ["家庭联系人信息", "纸质和手机各留一份"]
+        ]
+      },
+      {
+        id: "study", title: "视觉传达专业学习用品", note: "先带基础用品，等课程要求明确后再补充画材。", items: [
+          ["笔记本电脑", "设计作业和资料整理使用"], ["电脑充电器", "出发前检查是否带上"], ["鼠标", "做设计比触控板方便"],
+          ["U 盘或移动硬盘", "及时备份作业"], ["手机和充电器", "各 1 个"], ["充电宝", "随身携带，注意容量规定"],
+          ["耳机", "宿舍使用注意音量"], ["草稿本或速写本", "1—2 本，练习构图和记录灵感"],
+          ["黑色签字笔", "2—3 支，课堂记录和填表"], ["铅笔、自动铅笔、橡皮", "各 1—2 个"],
+          ["直尺、三角尺", "各 1 个"], ["文件夹、透明文件袋", "保存课程资料和作品打印稿"],
+          ["美工刀、剪刀", "先确认宿舍和课堂使用规定"], ["绘图板", "可选，没有不用急着购买贵的设备"]
+        ]
+      },
+      {
+        id: "clothes", title: "衣物和鞋子", note: "先带够一周到十天，厚冬衣之后再寄。", items: [
+          ["短袖上衣", "5—7 件"], ["短裤或薄长裤", "3—4 条"], ["内衣裤", "7—10 套"], ["袜子", "7—10 双"],
+          ["运动服", "1—2 套，军训、体育课或健身使用"], ["薄外套", "1 件，空调房和下雨天使用"],
+          ["长袖防晒衣", "可选"], ["舒适运动鞋", "1 双，适合军训和校园走路"], ["日常鞋", "1 双"],
+          ["拖鞋", "1 双，宿舍和洗澡使用"], ["帽子", "1 顶"], ["雨伞或轻便雨衣", "1 件，广州多雨"]
+        ]
+      },
+      {
+        id: "daily", title: "洗漱和日常起居", note: "洗漱用品先带小包装，到校后再补充。", items: [
+          ["牙刷、牙膏", "各 1 个"], ["洗发水、沐浴露、洗面奶", "各 1 份，可先带小瓶装"], ["毛巾", "2 条，洗脸和擦身体分开"],
+          ["浴巾", "1 条"], ["水杯", "1 个"], ["洗衣液或洗衣凝珠", "1 份，先带小包装"], ["衣架", "8—12 个"],
+          ["袜子夹或小夹子", "1 包"], ["折叠盆或洗脸盆", "1 个，看行李空间决定"], ["纸巾、湿巾", "各 1 包"],
+          ["垃圾袋", "1 卷"], ["小剪刀、指甲刀", "各 1 个"], ["针线包", "可选"], ["小锁", "1—2 个，柜子或行李箱使用"],
+          ["便携背包", "1 个，上课和出门使用"]
+        ]
+      },
+      {
+        id: "bedding", title: "床上用品", note: "先确认床尺寸和学校是否统一提供床品，再决定买哪些。", items: [
+          ["确认床铺尺寸", "出发前完成"], ["确认学校是否统一提供或购买床品", "出发前完成"],
+          ["便携床单或枕套", "学校统一提供床品时，可先带一套防止第一晚未领取"],
+          ["薄毯或空调被", "广州 9 月先带轻薄款"], ["床垫或床褥", "学校不提供时准备，先确认尺寸"],
+          ["床单", "学校不提供时准备 2 条，方便换洗"], ["被子或夏凉被", "学校不提供时准备 1—2 床"],
+          ["枕头和枕套", "学校不提供时准备各 1—2 个"], ["蚊帐或床帘", "先确认学校是否允许"], ["防潮收纳袋", "1—2 个，广州潮湿"]
+        ]
+      },
+      {
+        id: "health", title: "健康和安全", note: "药品保留原包装和说明书，不带违规大功率电器。", items: [
+          ["长期使用的处方药", "按疗程准备"], ["感冒药、肠胃药", "少量，准备常用的即可"], ["创可贴、碘伏棉签", "1 小包"],
+          ["体温计", "1 个"], ["眼镜", "近视者建议带备用眼镜"], ["隐形眼镜及护理液", "按需"],
+          ["防晒霜", "1 支"], ["防蚊用品", "1 份"], ["口罩", "少量备用"], ["确认宿舍电器规定", "包括插排功率和禁用电器"]
+        ]
+      },
+      {
+        id: "entertainment", title: "娱乐和放松", note: "带少量能让你放松、又不容易连续消耗很久的东西。", items: [
+          ["正在阅读的书", "1 本"], ["速写本", "1 本，可把娱乐和专业练习结合起来"], ["耳机", "1 副，注意宿舍作息和音量"],
+          ["小型运动用品", "可选，如跳绳、羽毛球拍"], ["少量桌游或扑克牌", "可选，和室友交流使用"],
+          ["游戏机", "建议暂缓，先适应课程和宿舍作息"]
+        ]
+      },
+      {
+        id: "first-night", title: "第一晚随身包", note: "这一组是出发当天的快速复核，不计入上方进度。", count: false, items: [
+          ["身份证和报到材料", ""], ["手机、充电器、充电宝", ""], ["一套换洗衣服和内衣", ""], ["毛巾、牙刷、拖鞋", ""],
+          ["水杯", ""], ["常用药", ""], ["一套床单或薄毯", ""], ["银行卡和少量现金", ""], ["学校联系人信息", ""]
+        ]
+      },
+      {
+        id: "later", title: "到校后再决定", note: "先看宿舍空间、尺寸和规定，不计入出发前进度。", later: true, count: false, items: [
+          ["收纳箱、置物架", "先看柜子和桌面空间"], ["床帘、床上桌", "先确认尺寸和宿舍规定"], ["大量画材", "等课程和老师要求"],
+          ["小冰箱", "看宿舍是否允许、是否真的需要"], ["清洁工具", "可与室友商量分工购买"], ["大量零食和饮料", "学校超市或附近商店可以买"],
+          ["厚冬衣", "之后寄到学校即可"]
+        ]
+      }
+    ];
+
+    let checked = loadChecked();
+    let activeFilter = "all";
+    let searchTerm = "";
+
+    function loadChecked() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); }
+      catch (_) { return {}; }
+    }
+
+    function saveChecked() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(checked)); }
+      catch (_) { /* 本地存储不可用时仍允许当前页面勾选 */ }
+    }
+
+    function itemKey(categoryId, index) { return categoryId + "-" + index; }
+
+    function render() {
+      const container = document.getElementById("sections");
+      const query = searchTerm.trim().toLowerCase();
+      container.innerHTML = "";
+
+      data.forEach(category => {
+        const visible = category.items.filter(([name, note], index) => {
+          const isChecked = Boolean(checked[itemKey(category.id, index)]);
+          const matchesFilter = activeFilter === "all" || (activeFilter === "done" ? isChecked : !isChecked);
+          const matchesSearch = !query || (name + " " + note).toLowerCase().includes(query);
+          return matchesFilter && matchesSearch;
+        });
+        const completed = category.items.filter((_, index) => checked[itemKey(category.id, index)]).length;
+        if (!visible.length) return;
+
+        const section = document.createElement("section");
+        section.className = "category" + (category.later ? " later" : "");
+        section.innerHTML = `
+          <div class="category-head">
+            <h2>${escapeHtml(category.title)}</h2>
+            <span class="category-count">${completed} / ${category.items.length}</span>
+          </div>
+          <p class="category-note">${escapeHtml(category.note)}</p>
+          <div class="items"></div>
+        `;
+        const items = section.querySelector(".items");
+        category.items.forEach(([name, note], index) => {
+          const isChecked = Boolean(checked[itemKey(category.id, index)]);
+          const matchesFilter = activeFilter === "all" || (activeFilter === "done" ? isChecked : !isChecked);
+          const matchesSearch = !query || (name + " " + note).toLowerCase().includes(query);
+          if (!matchesFilter || !matchesSearch) return;
+          const label = document.createElement("label");
+          label.className = "check-row" + (isChecked ? " checked" : "");
+          label.innerHTML = `
+            <input type="checkbox" ${isChecked ? "checked" : ""} aria-label="${escapeHtml(name)}">
+            <span><span class="item-name">${escapeHtml(name)}</span>${note ? `<span class="item-note">${escapeHtml(note)}</span>` : ""}</span>
+          `;
+          label.querySelector("input").addEventListener("change", event => {
+            checked[itemKey(category.id, index)] = event.target.checked;
+            saveChecked();
+            render();
+          });
+          items.appendChild(label);
+        });
+        container.appendChild(section);
+      });
+
+      if (!container.children.length) {
+        container.innerHTML = `<p class="empty">没有符合当前筛选条件的项目。</p>`;
+      }
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const countable = data.filter(category => category.count !== false);
+      const total = countable.reduce((sum, category) => sum + category.items.length, 0);
+      const completed = countable.reduce((sum, category) => sum + category.items.filter((_, index) => checked[itemKey(category.id, index)]).length, 0);
+      const percent = total ? Math.round(completed / total * 100) : 0;
+      document.getElementById("statusText").textContent = `${completed} / ${total} 项`;
+      document.getElementById("progressPercent").textContent = percent + "%";
+      document.getElementById("progressValue").style.width = percent + "%";
+      document.querySelector("[role=progressbar]").setAttribute("aria-valuenow", String(percent));
+    }
+
+    function escapeHtml(value) {
+      return value.replace(/[&<>"']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[character]));
+    }
+
+    document.getElementById("searchInput").addEventListener("input", event => {
+      searchTerm = event.target.value;
+      render();
+    });
+
+    document.querySelectorAll("[data-filter]").forEach(button => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+        document.querySelectorAll("[data-filter]").forEach(item => item.classList.toggle("active", item === button));
+        render();
+      });
+    });
+
+    document.getElementById("resetButton").addEventListener("click", () => {
+      if (!Object.values(checked).some(Boolean)) return;
+      if (!window.confirm("确定清除所有勾选吗？")) return;
+      checked = {};
+      saveChecked();
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>

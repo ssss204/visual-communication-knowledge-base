@@ -9,6 +9,7 @@ Thumbs.db
 # 本地缓存和导出文件
 .cache/
 _site/
+.playwright-cli/
 
 # 敏感配置（不要提交密码、密钥或令牌）
 .env
