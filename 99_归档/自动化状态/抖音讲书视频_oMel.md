@@ -7,7 +7,7 @@
 - 名称：oMel
 - 抖音号：DaddyJoseph6666
 - 主页：[抖音主页](https://www.douyin.com/user/MS4wLjABAAAAhG_t2FVn6ua4bY8zmnU5t2jsClwinzW96ILPVFRFnR1A5_gISKYTNDETgaDtc8bc?from_tab_name=main)
-- 自动检查频率：每两天一次
+- 自动检查频率：每周一次（每周日 10:00，Asia/Shanghai）
 - 建档时间：2026-08-30
 - 最近成功整理：2026-08-30
 
