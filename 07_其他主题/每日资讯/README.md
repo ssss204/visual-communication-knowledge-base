@@ -16,3 +16,7 @@
 ## 使用方式
 
 每天优先看“今日摘要”和“需要核验”，周末再把反复出现的主题整理到对应栏目。简报不是投资建议，不记录完整文章或完整付费内容。
+
+## Horizon 新闻雷达
+
+Horizon 生成的中文日报保存在 [Horizon](Horizon/README.md) 子目录。它负责抓取 RSS、Google News RSS、Hacker News、GitHub 和 OSS Insight 等公开来源，进行去重、筛选和摘要；原有手工或 Codex 生成的简报仍保留，不会被覆盖。

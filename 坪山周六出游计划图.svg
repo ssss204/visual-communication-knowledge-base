@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="0" flood-color="#17324d" flood-opacity="0.12"/>
+    </filter>
+    <pattern id="dots" width="38" height="38" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="2" fill="#b9d8df" opacity="0.6"/>
+    </pattern>
+  </defs>
+
+  <!-- paper -->
+  <rect width="1200" height="1600" fill="#f8f5ec"/>
+  <rect x="24" y="24" width="1152" height="1552" rx="34" fill="none" stroke="#17324d" stroke-width="4"/>
+  <rect x="24" y="24" width="1152" height="1552" rx="34" fill="url(#dots)" opacity="0.42"/>
+
+  <!-- header -->
+  <path d="M24 24h1152v238c-150 36-292 20-438-4-168-27-335-33-506 8-74 18-142 22-208 10Z" fill="#92d6df"/>
+  <path d="M24 228c140 24 220 2 334-17 159-26 326-16 468 7 153 25 251 23 350-2v72H24Z" fill="#f7d36b" opacity="0.8"/>
+  <text x="76" y="104" font-family="Microsoft YaHei, sans-serif" font-size="28" font-weight="700" fill="#17324d">深圳 · 坪山周六游览</text>
+  <text x="72" y="176" font-family="Microsoft YaHei, sans-serif" font-size="60" font-weight="900" fill="#17324d">坪山周六游览图</text>
+  <text x="78" y="222" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#31556d">文化参观 · 餐饮休闲 · 公园漫步</text>
+
+  <!-- weather badge -->
+  <g transform="translate(850 70)" filter="url(#shadow)">
+    <rect width="270" height="138" rx="24" fill="#fffdf6" stroke="#17324d" stroke-width="4"/>
+    <text x="24" y="38" font-family="Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#17324d">周六 9/5 天气</text>
+    <g transform="translate(24 54)">
+      <circle cx="30" cy="24" r="19" fill="#f7c74f" stroke="#17324d" stroke-width="4"/>
+      <path d="M15 49c3-17 32-21 41-3 17-7 34 3 33 19H10c-2-8 0-13 5-16Z" fill="#8cb9d5" stroke="#17324d" stroke-width="4"/>
+      <path d="M45 70l-7 17M70 70l-7 17" stroke="#3f86a6" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <text x="112" y="82" font-family="Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17324d">雷阵雨风险</text>
+    <text x="112" y="112" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#31556d">约 29℃ / 24℃</text>
+  </g>
+
+  <!-- route area -->
+  <text x="78" y="340" font-family="Microsoft YaHei, sans-serif" font-size="34" font-weight="900" fill="#17324d">主路线 · 文化聚落半日游</text>
+  <text x="78" y="378" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#527083">建议 11:00 集合｜公共交通友好｜全程约 5 小时</text>
+
+  <!-- route line -->
+  <path d="M190 486 C190 570 290 592 290 680 S190 800 190 900 S290 1018 290 1116 S205 1215 205 1300" fill="none" stroke="#ef7d61" stroke-width="12" stroke-linecap="round" stroke-dasharray="3 25"/>
+  <path d="M190 486 C190 570 290 592 290 680 S190 800 190 900 S290 1018 290 1116 S205 1215 205 1300" fill="none" stroke="#fff8e5" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 27"/>
+
+  <!-- station -->
+  <g transform="translate(110 425)" filter="url(#shadow)">
+    <circle cx="80" cy="62" r="60" fill="#ef7d61" stroke="#17324d" stroke-width="5"/>
+    <path d="M50 80h60M58 80V45h44v35M50 45h60M72 45v-16h16v16" fill="none" stroke="#fffdf6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="80" cy="62" r="7" fill="#fffdf6"/>
+  </g>
+  <g transform="translate(365 430)" filter="url(#shadow)">
+    <rect width="700" height="120" rx="24" fill="#fffdf6" stroke="#17324d" stroke-width="4"/>
+    <text x="30" y="45" font-family="Microsoft YaHei, sans-serif" font-size="30" font-weight="900" fill="#17324d">11:00 · 坪山中心站集合</text>
+    <text x="30" y="84" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#31556d">集合后前往下一站，具体路线可按现场情况调整</text>
+    <text x="570" y="70" font-family="Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#ef7d61">起点</text>
+  </g>
+
+  <!-- museum -->
+  <g transform="translate(110 615)" filter="url(#shadow)">
+    <circle cx="80" cy="62" r="60" fill="#f7c74f" stroke="#17324d" stroke-width="5"/>
+    <path d="M42 86h76M49 78h62M57 73V53h46v20M52 53l28-22 28 22" fill="none" stroke="#17324d" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M66 85V60M80 85V60M94 85V60" stroke="#17324d" stroke-width="6"/>
+  </g>
+  <g transform="translate(365 610)" filter="url(#shadow)">
+    <rect width="700" height="150" rx="24" fill="#fffdf6" stroke="#17324d" stroke-width="4"/>
+    <text x="30" y="48" font-family="Microsoft YaHei, sans-serif" font-size="30" font-weight="900" fill="#17324d">11:15—12:45 · 坪山美术馆</text>
+    <text x="30" y="88" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#31556d">参观展览与建筑空间，建议预留约 90 分钟</text>
+    <text x="30" y="122" font-family="Microsoft YaHei, sans-serif" font-size="19" fill="#6d8792">汇德路 4 号｜公开信息：周二至周日约 9:00—17:00</text>
+  </g>
+
+  <!-- lunch -->
+  <g transform="translate(110 835)" filter="url(#shadow)">
+    <circle cx="80" cy="62" r="60" fill="#8bc9a5" stroke="#17324d" stroke-width="5"/>
+    <circle cx="80" cy="62" r="29" fill="none" stroke="#fffdf6" stroke-width="7"/>
+    <path d="M80 33v58M51 62h58" stroke="#fffdf6" stroke-width="5" stroke-linecap="round"/>
+    <path d="M45 105c24 16 46 16 70 0" fill="none" stroke="#fffdf6" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(365 830)" filter="url(#shadow)">
+    <rect width="700" height="120" rx="24" fill="#fffdf6" stroke="#17324d" stroke-width="4"/>
+    <text x="30" y="45" font-family="Microsoft YaHei, sans-serif" font-size="30" font-weight="900" fill="#17324d">13:00—14:30 · 午饭</text>
+    <text x="30" y="84" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#31556d">周边餐饮选择丰富，可根据时间与需求安排</text>
+  </g>
+
+  <!-- park/coffee -->
+  <g transform="translate(110 1045)" filter="url(#shadow)">
+    <circle cx="80" cy="62" r="60" fill="#6fb1cf" stroke="#17324d" stroke-width="5"/>
+    <path d="M48 83h65M57 83V58l23-26 23 26v25M80 58v25" fill="none" stroke="#fffdf6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M37 98c20-11 42-11 63 0" fill="none" stroke="#fffdf6" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(365 1040)" filter="url(#shadow)">
+    <rect width="700" height="150" rx="24" fill="#fffdf6" stroke="#17324d" stroke-width="4"/>
+    <text x="30" y="48" font-family="Microsoft YaHei, sans-serif" font-size="30" font-weight="900" fill="#17324d">14:30—16:00 · 中心公园 / 咖啡</text>
+    <text x="30" y="88" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#31556d">天气适宜时公园漫步，降雨时改为室内活动</text>
+    <text x="30" y="123" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#6d8792">可根据天气与现场时间灵活调整</text>
+  </g>
+
+  <!-- end -->
+  <g transform="translate(110 1250)" filter="url(#shadow)">
+    <circle cx="80" cy="62" r="60" fill="#ef7d61" stroke="#17324d" stroke-width="5"/>
+    <path d="M51 70c12-20 22-20 29 0 8-20 18-20 29 0M52 90h56" fill="none" stroke="#fffdf6" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(365 1245)" filter="url(#shadow)">
+    <rect width="700" height="120" rx="24" fill="#fffdf6" stroke="#17324d" stroke-width="4"/>
+    <text x="30" y="45" font-family="Microsoft YaHei, sans-serif" font-size="30" font-weight="900" fill="#17324d">16:00 后 · 返程或续游</text>
+    <text x="30" y="84" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#31556d">16:00 后可按时间安排返程或继续游览</text>
+  </g>
+
+  <!-- fallback panel -->
+  <g transform="translate(70 1415)" filter="url(#shadow)">
+    <rect width="1060" height="125" rx="24" fill="#17324d"/>
+    <text x="30" y="40" font-family="Microsoft YaHei, sans-serif" font-size="25" font-weight="900" fill="#f7d36b">☔ 雷阵雨备用路线</text>
+    <text x="30" y="78" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#fffdf6">美术馆 → 室内用餐 → 咖啡 / 图书馆｜降雨时取消湖边及户外段</text>
+    <text x="30" y="108" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#b9d8df">自然博物馆需提前预约；出发前复核天气与场馆公告</text>
+  </g>
+
+  <!-- small decorative map details -->
+  <g fill="#8bc9a5" stroke="#17324d" stroke-width="4">
+    <path d="M1040 300c28-34 56-34 84 0-24-7-48 8-84 0Z"/>
+    <path d="M1010 330c20-30 43-30 63 0-19-6-36 7-63 0Z"/>
+  </g>
+  <g stroke="#17324d" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M1060 312v54M1040 338l-17-17M1060 343l19-20"/>
+  </g>
+</svg>

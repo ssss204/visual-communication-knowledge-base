@@ -59,3 +59,7 @@ git -C $kb push
 ```
 
 另一台电脑使用前先执行 `git -C "E:\我的知识库" pull --rebase`。如果 Git 提示登录，请在弹出的 GitHub 登录窗口完成认证。GitHub 同步文件和版本；AI 是否能读取内容，取决于当前电脑上使用的 AI 工具是否获得本地目录或仓库访问权限。
+
+## Horizon 新闻雷达
+
+本机的 Horizon 项目位于 `E:\Horizon`，负责抓取公开资讯、去重和生成中文日报。日报会同步到 [每日资讯/Horizon](07_其他主题/每日资讯/Horizon/README.md)。安装、密钥和定时任务说明见 `E:\Horizon\OBSIDIAN_SETUP.md`。
